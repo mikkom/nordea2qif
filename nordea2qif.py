@@ -50,6 +50,7 @@ FILENAME_INDEX = 1
 DATE_INDEX = 0
 TOTAL_INDEX = 3
 PAYEE_INDEX = 4
+TRANSACTION_INDEX = 7
 MEMO_INDEX = 10
 MIN_FIELD_COUNT = PAYEE_INDEX + 1
 
@@ -84,6 +85,8 @@ for line in lines:
             total = float(totalstr)
 
             payee = unescape(fields[PAYEE_INDEX])
+            if payee == '':
+                payee = unescape(fields[TRANSACTION_INDEX])
 
             memo = None
             if len(fields) > MEMO_INDEX and fields[MEMO_INDEX] != '':
