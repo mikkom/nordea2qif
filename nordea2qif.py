@@ -70,9 +70,7 @@ output = ''
 
 lines = str.splitlines()
 for line in lines:
-    if re.match('\d', line) == None:
-        print 'Line does not start with a number, skipping...'
-    else:
+    if re.match('\d', line) != None:
         fields = line.split('\t')
         if len(fields) < MIN_FIELD_COUNT:
             print 'Not enough fields in the line, skipping...'
